@@ -1,0 +1,19 @@
+[Desktop Entry]
+Comment[pl_PL]=
+Comment=
+Exec=cd /path/to/data\necho -e "GET http://google.com HTTP/1.0\\n\\n" | nc google.com 80 > /dev/null 2>&1;\nif [ $? -eq 0 ];\nthen;\ngit fetch;\nUPSTREAM=${1:-'@{u}'};\nLOCAL=$(git rev-parse @);\nREMOTE=$(git rev-parse "$UPSTREAM");\nBASE=$(git merge-base @ "$UPSTREAM");\nif [ $LOCAL = $REMOTE ];\nthen;\necho "Up-to-date";\nelif [ $LOCAL = $BASE ]; then;\necho "Updating...";\ngit pull;\necho "Rebuilding...";\n#"write the recompilation code"\nfi;\nelse;\necho "Offline";\nfi;\n#"write the run code"
+GenericName[pl_PL]=Template of this script in shortcut.
+GenericName=Template of this script in shortcut.
+Icon=system-run
+MimeType=
+Name[pl_PL]=template
+Name=template
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

@@ -1,0 +1,19 @@
+[Desktop Entry]
+Comment[pl_PL]=This is example file, you can use it to easy run Processing 4 (but you must run "git clone https://github.com/processing/processing4.git" first)
+Comment=This is example file, you can use it to easy run Processing 4 (but you must run "git clone https://github.com/processing/processing4.git" first)
+Exec=cd $HOME/processing4/ #Git folder\n\necho -e "GET http://google.com HTTP/1.0\\n\\n" | nc google.com 80 > /dev/null 2>&1;\nif [ $? -eq 0 ];\n    then git fetch;\n        UPSTREAM=${1:-'@{u}'};\n        LOCAL=$(git rev-parse @);\n        REMOTE=$(git rev-parse "$UPSTREAM");\n        BASE=$(git merge-base @ "$UPSTREAM");\n\n        if [ $LOCAL = $REMOTE ];\n            then echo "Up-to-date";\n            elif [ $LOCAL = $BASE ];\n            then echo "Updating...";\n                git pull;\n                echo "Rebuilding...";\n                cd build;\n                ant build;\n                cd ..;\n        fi;\n    else echo "Offline";\nfi;\ncd build/linux/work; #Build folder\n./processing;\n
+GenericName[pl_PL]=Run Processing 4 easier.
+GenericName=Run Processing 4 easier.
+Icon=system-run
+MimeType=
+Name[pl_PL]=example
+Name=example
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
